@@ -6,7 +6,6 @@ import 'package:flutter/gestures.dart';
 //import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Detail extends StatefulWidget {
-
   final Place place;
 
   Detail({required this.place});
@@ -16,10 +15,9 @@ class Detail extends StatefulWidget {
 }
 
 class _DetailState extends State<Detail> {
-
   int _currentImage = 0;
 
-  List<Widget> buildPageIndicator(){
+  List<Widget> buildPageIndicator() {
     List<Widget> list = [];
     for (var i = 0; i < widget.place.images.length; i++) {
       list.add(buildIndicator(i == _currentImage));
@@ -27,7 +25,7 @@ class _DetailState extends State<Detail> {
     return list;
   }
 
-  Widget buildIndicator(bool isActive){
+  Widget buildIndicator(bool isActive) {
     return AnimatedContainer(
       duration: Duration(milliseconds: 150),
       margin: EdgeInsets.symmetric(horizontal: 3.0),
@@ -44,7 +42,6 @@ class _DetailState extends State<Detail> {
 
   @override
   Widget build(BuildContext context) {
-
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -62,7 +59,6 @@ class _DetailState extends State<Detail> {
           ),
         ),
         actions: <Widget>[
-
           Padding(
             padding: EdgeInsets.only(right: 16),
             child: Icon(
@@ -70,7 +66,6 @@ class _DetailState extends State<Detail> {
               color: Colors.white,
             ),
           ),
-
         ],
       ),
       body: SingleChildScrollView(
@@ -78,18 +73,18 @@ class _DetailState extends State<Detail> {
           height: size.height,
           child: Stack(
             children: <Widget>[
-
               Hero(
                 tag: widget.place.images[0],
                 child: PageView(
-                  onPageChanged: (int page){
+                  onPageChanged: (int page) {
                     setState(() {
                       _currentImage = page;
                     });
                   },
                   children: widget.place.images.map((image) {
                     return ColorFiltered(
-                      colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.3), BlendMode.darken),
+                      colorFilter: ColorFilter.mode(
+                          Colors.black.withOpacity(0.3), BlendMode.darken),
                       child: Container(
                         decoration: BoxDecoration(
                           image: DecorationImage(
@@ -102,14 +97,14 @@ class _DetailState extends State<Detail> {
                   }).toList(),
                 ),
               ),
-
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16,),
+                padding: EdgeInsets.symmetric(
+                  horizontal: 16,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
-
                     new GestureDetector(
                       onTap: () {
                         setState(() {
@@ -119,17 +114,17 @@ class _DetailState extends State<Detail> {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Icon(
-                          widget.place.favorite ? Icons.favorite : Icons.favorite_border,
+                          widget.place.favorite
+                              ? Icons.favorite
+                              : Icons.favorite_border,
                           color: kPrimaryColor,
                           size: 36,
                         ),
                       ),
                     ),
-
                     SizedBox(
                       height: 16,
                     ),
-
                     Container(
                       child: Text(
                         widget.place.description,
@@ -139,28 +134,22 @@ class _DetailState extends State<Detail> {
                         ),
                       ),
                     ),
-
                     SizedBox(
                       height: 16,
                     ),
-
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-
                         Row(
                           children: <Widget>[
-
                             Icon(
                               Icons.location_on,
                               color: Colors.white,
                               size: 24,
                             ),
-
                             SizedBox(
                               width: 8,
                             ),
-
                             Text(
                               widget.place.country,
                               style: TextStyle(
@@ -168,26 +157,20 @@ class _DetailState extends State<Detail> {
                                 fontSize: 20,
                               ),
                             ),
-
                           ],
                         ),
-
                         widget.place.images.length > 1
                             ? Row(
-                          children: buildPageIndicator(),
-                        )
+                                children: buildPageIndicator(),
+                              )
                             : Container(),
-
                       ],
                     ),
-
                     SizedBox(
                       height: 16,
                     ),
-
                     Row(
                       children: <Widget>[
-
                         Text(
                           "Starting from",
                           style: TextStyle(
@@ -195,11 +178,9 @@ class _DetailState extends State<Detail> {
                             fontSize: 18,
                           ),
                         ),
-
                         SizedBox(
                           width: 8,
                         ),
-
                         Text(
                           r"$ " + widget.place.price.toStringAsFixed(2),
                           style: TextStyle(
@@ -208,17 +189,16 @@ class _DetailState extends State<Detail> {
                             fontSize: 28,
                           ),
                         ),
-
                       ],
                     ),
-
                     SizedBox(
                       height: 16,
                     ),
-
                     Container(
                       height: 60,
-                      margin: EdgeInsets.symmetric(vertical: 8,),
+                      margin: EdgeInsets.symmetric(
+                        vertical: 8,
+                      ),
                       decoration: BoxDecoration(
                           color: kPrimaryColor,
                           borderRadius: BorderRadius.only(
@@ -226,8 +206,7 @@ class _DetailState extends State<Detail> {
                             topRight: Radius.circular(10),
                             bottomLeft: Radius.circular(30),
                             bottomRight: Radius.circular(30),
-                          )
-                      ),
+                          )),
                       child: Center(
                         child: Text(
                           "Book Now",
@@ -239,11 +218,9 @@ class _DetailState extends State<Detail> {
                         ),
                       ),
                     ),
-
                   ],
                 ),
               ),
-
             ],
           ),
         ),

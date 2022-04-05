@@ -11,7 +11,6 @@ class Explore extends StatefulWidget {
 }
 
 class _ExploreState extends State<Explore> {
-
   List<NavigationItem> navigationItems = getNavigationItemList();
   late NavigationItem selectedItem;
 
@@ -45,23 +44,27 @@ class _ExploreState extends State<Explore> {
         ),
         centerTitle: false,
         actions: <Widget>[
-
           Container(
-            margin: EdgeInsets.only(right: 16, top: 8,),
+            margin: EdgeInsets.only(
+              right: 16,
+              top: 8,
+            ),
             width: 50,
             child: CircleAvatar(
               backgroundImage: AssetImage('assets/images/imgnine.jpg'),
             ),
           ),
-
         ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-
           Padding(
-            padding: EdgeInsets.only(left: 16, right: 16, top: 16,),
+            padding: EdgeInsets.only(
+              left: 16,
+              right: 16,
+              top: 16,
+            ),
             child: TextField(
               decoration: InputDecoration(
                 hintText: 'Search',
@@ -78,8 +81,8 @@ class _ExploreState extends State<Explore> {
                 ),
                 filled: true,
                 fillColor: Colors.white,
-                contentPadding: EdgeInsets.symmetric(
-                    vertical: 20, horizontal: 24),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 20, horizontal: 24),
                 suffixIcon: Padding(
                   padding: EdgeInsets.only(right: 24.0, left: 8.0),
                   child: Icon(
@@ -91,10 +94,12 @@ class _ExploreState extends State<Explore> {
               ),
             ),
           ),
-
           Expanded(
             child: Container(
-              padding: EdgeInsets.only(top: 8, left: 16,),
+              padding: EdgeInsets.only(
+                top: 8,
+                left: 16,
+              ),
               child: ListView(
                 physics: BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
@@ -102,19 +107,23 @@ class _ExploreState extends State<Explore> {
               ),
             ),
           ),
-
           Container(
             height: 120,
-            padding: EdgeInsets.only(top: 8, left: 16,),
+            padding: EdgeInsets.only(
+              top: 8,
+              left: 16,
+            ),
             child: ListView(
               physics: BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               children: buildDestinations(),
             ),
           ),
-
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8,),
+            padding: EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 8,
+            ),
             child: Text(
               "Featured Places",
               style: TextStyle(
@@ -123,7 +132,6 @@ class _ExploreState extends State<Explore> {
               ),
             ),
           ),
-
           Container(
             height: 90,
             child: PageView(
@@ -131,12 +139,14 @@ class _ExploreState extends State<Explore> {
               children: buildFeatureds(),
             ),
           ),
-
         ],
       ),
       bottomNavigationBar: Container(
         height: 60,
-        margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8,),
+        margin: EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 8,
+        ),
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
@@ -144,8 +154,7 @@ class _ExploreState extends State<Explore> {
               topRight: Radius.circular(10),
               bottomLeft: Radius.circular(30),
               bottomRight: Radius.circular(30),
-            )
-        ),
+            )),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: buildNavigationItems(),
@@ -190,7 +199,6 @@ class _ExploreState extends State<Explore> {
             ),
             child: Stack(
               children: <Widget>[
-
                 GestureDetector(
                   onTap: () {
                     setState(() {
@@ -198,7 +206,10 @@ class _ExploreState extends State<Explore> {
                     });
                   },
                   child: Padding(
-                    padding: EdgeInsets.only(left: 12, top: 12,),
+                    padding: EdgeInsets.only(
+                      left: 12,
+                      top: 12,
+                    ),
                     child: Align(
                       alignment: Alignment.topLeft,
                       child: Icon(
@@ -209,16 +220,18 @@ class _ExploreState extends State<Explore> {
                     ),
                   ),
                 ),
-
                 Padding(
-                  padding: EdgeInsets.only(left: 12, bottom: 12, right: 12,),
+                  padding: EdgeInsets.only(
+                    left: 12,
+                    bottom: 12,
+                    right: 12,
+                  ),
                   child: Align(
                     alignment: Alignment.bottomLeft,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
-
                         Text(
                           place.description,
                           style: TextStyle(
@@ -226,24 +239,19 @@ class _ExploreState extends State<Explore> {
                             fontSize: 18,
                           ),
                         ),
-
                         SizedBox(
                           height: 8,
                         ),
-
                         Row(
                           children: <Widget>[
-
                             Icon(
                               Icons.location_on,
                               color: Colors.white,
                               size: 20,
                             ),
-
                             SizedBox(
                               width: 8,
                             ),
-
                             Text(
                               place.country,
                               style: TextStyle(
@@ -251,15 +259,12 @@ class _ExploreState extends State<Explore> {
                                 fontSize: 14,
                               ),
                             ),
-
                           ],
                         ),
-
                       ],
                     ),
                   ),
                 ),
-
               ],
             ),
           ),
@@ -288,23 +293,23 @@ class _ExploreState extends State<Explore> {
       child: Container(
         width: 140,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8,),
+          padding: EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 8,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-
               Image.asset(
                 destination.iconUrl,
                 height: 32,
                 fit: BoxFit.fitHeight,
                 color: destination.iconColor,
               ),
-
               SizedBox(
                 height: 4,
               ),
-
               Text(
                 destination.city,
                 style: TextStyle(
@@ -313,11 +318,9 @@ class _ExploreState extends State<Explore> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-
               SizedBox(
                 height: 4,
               ),
-
               Text(
                 destination.country,
                 style: TextStyle(
@@ -325,7 +328,6 @@ class _ExploreState extends State<Explore> {
                   fontSize: 14,
                 ),
               ),
-
             ],
           ),
         ),
@@ -343,7 +345,9 @@ class _ExploreState extends State<Explore> {
 
   Widget buildFeatured(Featured featured) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 12,),
+      padding: EdgeInsets.symmetric(
+        horizontal: 12,
+      ),
       child: Card(
         elevation: 0,
         clipBehavior: Clip.antiAlias,
@@ -360,12 +364,13 @@ class _ExploreState extends State<Explore> {
             ),
           ),
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16,),
+            padding: EdgeInsets.symmetric(
+              horizontal: 16,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-
                 Text(
                   featured.year,
                   style: TextStyle(
@@ -374,11 +379,9 @@ class _ExploreState extends State<Explore> {
                     color: Colors.white,
                   ),
                 ),
-
                 SizedBox(
                   height: 4,
                 ),
-
                 Text(
                   featured.title,
                   style: TextStyle(
@@ -387,7 +390,6 @@ class _ExploreState extends State<Explore> {
                     color: Colors.white,
                   ),
                 ),
-
               ],
             ),
           ),
@@ -415,17 +417,15 @@ class _ExploreState extends State<Explore> {
         width: 50,
         child: Stack(
           children: <Widget>[
-
             Align(
               alignment: Alignment.topCenter,
               child: Container(
                 width: 40,
                 height: 3,
-                color: selectedItem == item ? kPrimaryColor : Colors
-                    .transparent,
+                color:
+                    selectedItem == item ? kPrimaryColor : Colors.transparent,
               ),
             ),
-
             Center(
               child: Icon(
                 item.iconData,
@@ -433,7 +433,6 @@ class _ExploreState extends State<Explore> {
                 size: 28,
               ),
             )
-
           ],
         ),
       ),

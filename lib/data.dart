@@ -3,14 +3,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:country_icons/country_icons.dart';
 
 class NavigationItem {
-
   IconData iconData;
 
   NavigationItem(this.iconData);
-
 }
 
-List<NavigationItem> getNavigationItemList(){
+List<NavigationItem> getNavigationItemList() {
   return <NavigationItem>[
     NavigationItem(Icons.home),
     NavigationItem(Icons.notifications),
@@ -20,18 +18,16 @@ List<NavigationItem> getNavigationItemList(){
 }
 
 class Place {
-
-  String description;
-  String country;
+  late String description;
+  late String country;
   double price;
   List<String> images;
-  bool favorite;
+  late bool favorite;
 
   Place(this.description, this.country, this.price, this.images, this.favorite);
-
 }
 
-List<Place> getPlaceList(){
+List<Place> getPlaceList() {
   return <Place>[
     Place(
         "Beautiful city view from top of the town",
@@ -43,8 +39,7 @@ List<Place> getPlaceList(){
           "assets/images/imgseven.jpg",
           "assets/images/imgfourth.jpg",
         ],
-        false
-    ),
+        false),
     Place(
         "The second largest city in Brazil, famous for its breathtaking landscape",
         "Brazil",
@@ -55,8 +50,7 @@ List<Place> getPlaceList(){
           "assets/images/imgseven.jpg",
           "assets/images/imgeight.jpg",
         ],
-        false
-    ),
+        false),
     Place(
         "This city has been described as the cultural, financial, and media capital of the world",
         "USA",
@@ -67,8 +61,7 @@ List<Place> getPlaceList(){
           "assets/images/imgfirst.jpg",
           "assets/images/imgfourth.jpg",
         ],
-        false
-    ),
+        false),
     Place(
         "This city is built around a huge harbour and hosts many tourist attractions",
         "Australia",
@@ -77,8 +70,7 @@ List<Place> getPlaceList(){
           "assets/images/imgsix.jpg",
           "assets/images/imgseven.jpg",
         ],
-        false
-    ),
+        false),
     Place(
         "One of the largest Buddhist temples",
         "Hong Kong",
@@ -88,8 +80,7 @@ List<Place> getPlaceList(){
           "assets/images/imgfive.jpg",
           "assets/images/imgseven.jpg",
         ],
-        false
-    ),
+        false),
     Place(
         "These red cabins are beautiful",
         "Norway",
@@ -100,23 +91,20 @@ List<Place> getPlaceList(){
           "assets/images/imgfive.jpg",
           "assets/images/imgeight.jpg",
         ],
-        false
-    ),
+        false),
   ];
 }
 
 class Destination {
-
   String city;
   String country;
   String iconUrl;
   Color iconColor;
 
   Destination(this.city, this.country, this.iconUrl, this.iconColor);
-
 }
 
-List<Destination> getDestinationList(){
+List<Destination> getDestinationList() {
   return <Destination>[
     Destination(
       "Atenas",
@@ -146,16 +134,14 @@ List<Destination> getDestinationList(){
 }
 
 class Featured {
-
   String year;
   String title;
   String imageUrl;
 
   Featured(this.year, this.title, this.imageUrl);
-
 }
 
-List<Featured> getFeaturedList(){
+List<Featured> getFeaturedList() {
   return <Featured>[
     Featured(
       "2019",
